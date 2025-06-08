@@ -5,6 +5,7 @@ class Task implements JsonSerializable {
   private $description;
   private $status;
 
+  // Construtor da classe Task
   public function __construct($id, $title, $description) {
     $this->id = $id;
     $this->title = $title;
