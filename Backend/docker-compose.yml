@@ -1,0 +1,30 @@
+
+services:
+  php:
+    build: .
+    container_name: php_app
+    ports:
+      - "8000:80"
+    volumes:
+      - ./src:/var/www/html
+      - ./vendor:/var/www/vendor
+      - ./.env:/var/www/.env
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: reallink
+      MYSQL_DATABASE: task_manager
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: reallink
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
