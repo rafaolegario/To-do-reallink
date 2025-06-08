@@ -1,6 +1,6 @@
 <?php
-  require_once 'src/domain/application/To-do-list/repositories/tasks-repository.php';
-  require_once 'src/domain/entities/Task.php';
+  require_once 'domain/application/To-do-list/repositories/tasks-repository.php';
+  require_once 'domain/entities/Task.php';
 
   class CreateTaskUseCase {
     private $taskRepository;
@@ -14,7 +14,7 @@
         throw new InvalidArgumentException("Title and description cannot be empty.");
       }
 
-      $task = new Task($title, $description);
+      $task = new Task(null,$title, $description);
       $this->taskRepository->create($task);
       return $task;
     }

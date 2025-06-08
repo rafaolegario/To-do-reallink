@@ -1,5 +1,5 @@
 <?php
-  require_once 'src/domain/entities/Task.php';
+  require_once 'domain/entities/Task.php';
 
   interface TasksRepository {
     public function create(Task $task): void;

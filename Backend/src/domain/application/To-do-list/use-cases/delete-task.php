@@ -1,6 +1,6 @@
 <?php
-  require_once 'src/domain/application/To-do-list/repositories/tasks-repository.php';
-  require_once 'src/domain/entities/Task.php';
+  require_once 'domain/application/To-do-list/repositories/tasks-repository.php';
+  require_once 'domain/entities/Task.php';
 
   class DeleteTaskUseCase {
     private $taskRepository;
@@ -16,7 +16,7 @@
         throw new InvalidArgumentException("Task with id: $id not found.");
       }
 
-      $this->taskRespository->delete($id);
+      $this->taskRepository->delete($id);
 
       return ['message' => 'Task deleted with success'];
 

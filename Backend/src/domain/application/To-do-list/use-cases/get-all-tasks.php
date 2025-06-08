@@ -1,6 +1,6 @@
 <?php
-  require_once 'src/domain/application/To-do-list/repositories/tasks-repository.php';
-  require_once 'src/domain/entities/Task.php';
+  require_once 'domain/application/To-do-list/repositories/tasks-repository.php';
+  require_once 'domain/entities/Task.php';
 
   class GetAllTasksUseCase {
     private $taskRepository;

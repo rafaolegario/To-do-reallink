@@ -1,13 +1,13 @@
 <?php
-
-  require_once 'src/domain/application/To-do-list/use-cases/create-task.php';
-  require_once 'src/domain/application/To-do-list/use-cases/get-all-tasks.php';
-  require_once 'src/domain/application/To-do-list/use-cases/get-task.php';
-  require_once 'src/domain/application/To-do-list/use-cases/edit-task.php';
-  require_once 'src/domain/application/To-do-list/use-cases/delete-task.php';
+  require_once 'infra/database/repositories/mysql-repository.php';
+  require_once 'domain/application/To-do-list/use-cases/create-task.php';
+  require_once 'domain/application/To-do-list/use-cases/get-all-tasks.php';
+  require_once 'domain/application/To-do-list/use-cases/get-task.php';
+  require_once 'domain/application/To-do-list/use-cases/edit-task.php';
+  require_once 'domain/application/To-do-list/use-cases/delete-task.php';
 
  class TaskController {
-    private TaskRepository $taskRepo;
+    private MysqlRepository $taskRepo;
     private CreateTaskUseCase $createTaskUseCase;
     private GetAllTasksUseCase $getAllTasksUseCase;
     private GetTaskUseCase $getTaskUseCase;
@@ -15,7 +15,7 @@
     private DeleteTaskUseCase $deleteTaskUseCase;
 
     public function __construct() {
-        $this->taskRepo = new TaskRepository();
+        $this->taskRepo = new MysqlRepository();
         $this->createTaskUseCase = new CreateTaskUseCase($this->taskRepo);
         $this->getAllTasksUseCase = new GetAllTasksUseCase($this->taskRepo);
         $this->getTaskUseCase = new GetTaskUseCase($this->taskRepo);

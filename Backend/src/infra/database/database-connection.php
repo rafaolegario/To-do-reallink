@@ -1,6 +1,7 @@
 <?php
 namespace App\Database;
 
+
 use PDO;
 use Dotenv\Dotenv;
 
@@ -9,7 +10,7 @@ class Database {
 
   public static function connect(): PDO {
     if (!self::$pdo) {
-        $dotenv = Dotenv::createImmutable(__DIR__ . '/../../../');
+        $dotenv = Dotenv::createImmutable('/var/www');
         $dotenv->load();
 
         $host = $_ENV['DB_HOST'];
