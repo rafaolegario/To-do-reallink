@@ -21,17 +21,9 @@ cd backend
 ```bash
 composer install
 ```
-### 2. Subir container do Docker:
+### 2. Criar o arquivo .env:
 
---> O container do docker contem o mysql e o servidor do php com apache.
-
-```bash
-docker compose up --build -d
-```
-
-### 3. Criar o arquivo .env:
-
---> .Env example:
+--> .Env example na pasta Backend:
 
 ```bash
 DB_HOST=
@@ -39,6 +31,14 @@ DB_PORT=
 DB_DATABASE=
 DB_USERNAME=
 DB_PASSWORD=
+```
+
+### 3. Subir container do Docker:
+
+--> O container do docker contem o mysql e o servidor do php com apache.
+
+```bash
+docker compose up --build -d
 ```
 
 ### 4. Acesso a api:
