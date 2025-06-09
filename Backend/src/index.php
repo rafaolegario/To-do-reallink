@@ -2,6 +2,11 @@
 
 // Define que a resposta da API será no formato JSON
 header('Content-Type: application/json');
+// Permite requisições de qualquer origem (CORS) e define os métodos e cabeçalhos permitidos
+header("Access-Control-Allow-Origin: http://localhost:5173");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
 
 require_once 'infra/controllers/task-controller.php';
 require_once __DIR__ . '/../vendor/autoload.php';
@@ -14,6 +19,11 @@ $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 // Cria uma instância do controlador de tarefas
 $controller = new TaskController();
+
+if ($method === 'OPTIONS') {
+  http_response_code(200);
+  exit(); // Termina a execução aqui para requisições OPTIONS
+}
 
 // Roteamento baseado no método HTTP
 switch ($method) {
