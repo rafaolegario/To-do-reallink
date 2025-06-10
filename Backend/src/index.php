@@ -1,5 +1,7 @@
 <?php
 
+
+
 // Define que a resposta da API será no formato JSON
 header('Content-Type: application/json');
 // Permite requisições de qualquer origem (CORS) e define os métodos e cabeçalhos permitidos
@@ -10,6 +12,11 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
 require_once 'infra/controllers/task-controller.php';
 require_once __DIR__ . '/../vendor/autoload.php';
+
+use Dotenv\Dotenv;
+
+$dotenv = Dotenv::createImmutable('/var/www');
+$dotenv->load();
 
 // Obtém o método HTTP da requisição (GET, POST, PUT, DELETE, etc)
 $method = $_SERVER['REQUEST_METHOD'];
