@@ -2,7 +2,7 @@
 namespace App\Database; 
 
 use PDO;
-use Dotenv\Dotenv; 
+
 // Importa as classes PDO (para conexão ao banco) e Dotenv (para carregar variáveis de ambiente)
 
 class Database {
@@ -12,10 +12,6 @@ class Database {
   public static function connect(): PDO {
     if (!self::$pdo) { 
       // Se a conexão ainda não foi criada, cria uma nova
-
-      $dotenv = Dotenv::createImmutable('/var/www');
-      $dotenv->load(); 
-      // Carrega as variáveis de ambiente do arquivo .env localizado em /var/www
 
       // Pega as variáveis de ambiente do banco:
       $host = $_ENV['DB_HOST'];
