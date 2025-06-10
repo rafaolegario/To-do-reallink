@@ -12,7 +12,7 @@ cd TO-DO-REALLINK
 --> Abra o terminal e entre na pasta backend(que está dentro do clone do projeto) com o seguinte comando:
 
 ```bash
-cd backend
+cd Backend
 ```
 ### 1. Instale as dependências:
 
