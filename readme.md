@@ -2,7 +2,7 @@
 
 ## Técnologias utilizadas:
 
-**Backend**: PHP (puro) | Mysql - Ambos instaciados no Docker. <br>
+**Backend**: PHP (puro) | Mysql - Ambos instanciados no Docker. <br>
 **Frontend**: Vite + React + TypeScript.
 
 ## Clone o repositório
