@@ -20,3 +20,10 @@ RUN chown -R www-data:www-data /var/www/html
 
 # Porta padrão do Apache 
 EXPOSE 80
+
+RUN docker-php-ext-enable opcache
+RUN echo "opcache.enable=1" >> /usr/local/etc/php/conf.d/opcache.ini
+RUN echo "opcache.memory_consumption=128" >> /usr/local/etc/php/conf.d/opcache.ini
+RUN echo "opcache.interned_strings_buffer=8" >> /usr/local/etc/php/conf.d/opcache.ini
+RUN echo "opcache.max_accelerated_files=4000" >> /usr/local/etc/php/conf.d/opcache.ini
+RUN echo "opcache.revalidate_freq=60" >> /usr/local/etc/php/conf.d/opcache.ini
