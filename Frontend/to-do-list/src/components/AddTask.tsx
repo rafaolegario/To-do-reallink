@@ -1,26 +1,30 @@
 import type { FormEvent } from "react";
 
 interface AddTaskProps {
-  OnAddTask?: (task: { title: string; description: string }) => void
+  OnAddTask?: (task: { title: string; description: string }) => void;
 }
 
 function AddTask({ OnAddTask }: AddTaskProps) {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    const form = e.currentTarget
-    const title = (form.elements.namedItem("title") as HTMLInputElement).value.trim()
-    const description = (form.elements.namedItem("description") as HTMLTextAreaElement).value.trim()
+    e.preventDefault();
+    const form = e.currentTarget;
+    const title = (
+      form.elements.namedItem("title") as HTMLInputElement
+    ).value.trim();
+    const description = (
+      form.elements.namedItem("description") as HTMLTextAreaElement
+    ).value.trim();
 
     if (!title || !description) {
-      alert('O título e descrição não podem ser vazios')
-      return
+      alert("O título e descrição não podem ser vazios");
+      return;
     }
 
     OnAddTask?.({
       title,
-      description
-    })
-    form.reset()
+      description,
+    });
+    form.reset();
   };
 
   return (

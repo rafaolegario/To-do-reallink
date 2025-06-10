@@ -1,5 +1,5 @@
-export async function getAllTasks() {
-  const response = await fetch("http://localhost:8000/tasks", {
+export async function getTask(taskId: number) {
+  const response = await fetch(`http://localhost:8000/tasks/${taskId}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -11,5 +11,5 @@ export async function getAllTasks() {
   }
   const data = await response.json();
 
-  return data.Tasks;
+  return data.Task;
 }

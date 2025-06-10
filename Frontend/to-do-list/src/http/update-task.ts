@@ -1,23 +1,21 @@
-import type { Task } from "../components/ListTasks"
+import type { Task } from "../components/ListTasks";
 
 export async function updateTask(task: Task) {
   const request = {
     title: task.title,
     description: task.description,
-    status: task.status
-  }
+    status: task.status,
+  };
 
   const response = await fetch(`http://localhost:8000/tasks/${task.id}`, {
-    method: 'PUT',
+    method: "PUT",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify(request)
+    body: JSON.stringify(request),
+  });
 
-  })
-
-  if(!response.ok){
-    throw new Error('Erro ao salvar task')
+  if (!response.ok) {
+    throw new Error("Erro ao salvar task");
   }
-
 }
