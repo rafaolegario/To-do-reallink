@@ -1,5 +1,10 @@
 # To-Do List - Reallink
 
+## Técnologias utilizadas:
+
+**Backend**: PHP (puro) | Mysql - Ambos instaciados no Docker. <br>
+**Frontend**: Vite + React + TypeScript.
+
 ## Clone o repositório
 
 ```bash
@@ -9,7 +14,7 @@ cd TO-DO-REALLINK
 
 ### Passos para rodar o Backend
 
---> Abra o terminal e entre na pasta backend(que está dentro do clone do projeto) com o seguinte comando:
+--> Abra o terminal e entre na pasta Backend(que está dentro do clone do projeto) com o seguinte comando:
 
 ```bash
 cd Backend
@@ -73,3 +78,36 @@ PUT - http://localhost:8000/tasks/id
 DELETE - http://localhost:8000/tasks/id
 
 ```
+
+### Passos para rodar o Frontend
+
+--> Abra o terminal e entre na pasta Frontend(que está dentro do clone do projeto) com o seguinte comando:
+
+```bash
+cd Frontend/to-do-list
+```
+### 1. Instale as dependências:
+
+--> Utilize o comando abaixo para instalar as dependências. 
+
+```bash
+npm install
+```
+
+### 2. Rode o servidor do vite:
+
+--> Utilize o comando abaixo para rodar o servidor. 
+
+```bash
+npm run dev
+```
+
+--> Esse comando deve gerar uma URL nesse formato: 
+
+```bash
+http://localhost:5173/
+```
+
+--> Acesse essa url e pronto!
+
+* Lembre de colocar o backend para rodar antes de utilizar o frontend!.
