@@ -1,7 +1,8 @@
+// Componente para filtrar tarefas
 function FilterTask({
-  onChange,
+  onChange, // Função passada via props que será chamada ao mudar o filtro
 }: {
-  onChange: (value: "all" | "completed" | "pending") => void;
+  onChange: (value: "all" | "completed" | "pending") => void; // Tipagem do callback de mudança
 }) {
   return (
     <div className="filter-task w-full flex flex-col justify-center items-center">
@@ -10,6 +11,8 @@ function FilterTask({
       </h2>
       <select
         className="bg-gray-800 text-white p-2 rounded shadow-lg hover:shadow-xl transition-shadow w-full"
+        // Quando o valor muda, chama a função onChange com o valor selecionado,
+        // convertendo a string para o tipo específico esperado
         onChange={(e) =>
           onChange(e.target.value as "all" | "completed" | "pending")
         }

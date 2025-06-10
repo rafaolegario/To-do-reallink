@@ -1,47 +1,50 @@
 import { useEffect, useState } from "react";
-import type { Task } from "./ListTasks";
-import Modal from "react-modal";
+import type { Task } from "./ListTasks"; 
+import Modal from "react-modal"; 
 
 Modal.setAppElement("#root");
 
+// Define as props esperadas pelo componente
 interface EditTaskProps {
-  task: Task;
-  isOpen: boolean;
-  onClose: () => void;
-  onSaveTask?: (updatedTask: Task) => void;
+  task: Task; // Tarefa que será editada
+  isOpen: boolean; // Controle de visibilidade do modal
+  onClose: () => void; // Função chamada ao fechar o modal
+  onSaveTask?: (updatedTask: Task) => void; // Função para salvar a tarefa
 }
 
 function EditTask(props: EditTaskProps) {
+  // Estados para título e descrição da tarefa em edição
   const [editedTitle, setEditedTitle] = useState(props.task.title);
   const [editedDescription, setEditedDescription] = useState(
     props.task.description
   );
 
+  // Atualiza os campos sempre que a prop task mudar
   useEffect(() => {
     setEditedTitle(props.task.title);
     setEditedDescription(props.task.description);
   }, [props.task]);
 
+  // Função chamada ao salvar a tarefa
   function handleSave(e: React.FormEvent) {
-    e.preventDefault();
+    e.preventDefault(); 
     const updatedTask: Task = {
-      ...props.task,
+      ...props.task, // Mantém os outros campos da tarefa
       title: editedTitle,
       description: editedDescription,
     };
-    props.onSaveTask?.(updatedTask);
+    props.onSaveTask?.(updatedTask); // Chama a função de salvar
   }
 
   return (
     <Modal
-      isOpen={props.isOpen}
-      onRequestClose={props.onClose}
-      contentLabel="Edit Task Modal"
-      className="bg-gray-700 w-full p-6 rounded-lg max-w-md mx-auto mt-1 text-white shadow-xl border border-blue-500"
+      isOpen={props.isOpen} // Controla abertura do modal
+      onRequestClose={props.onClose} // Função ao clicar fora ou pressionar ESC
+      className="bg-gray-700 w-full p-6 rounded-lg max-w-md mx-auto mt-1 text-white shadow-xl border border-blue-500" // Estilo do modal
       style={{
         overlay: {
-          backgroundColor: "rgba(0, 0, 0, 0.7)",
-          zIndex: 50,
+          backgroundColor: "rgba(0, 0, 0, 0.7)", 
+          zIndex: 50, 
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
